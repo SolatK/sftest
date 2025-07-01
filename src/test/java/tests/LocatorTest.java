@@ -1,3 +1,5 @@
+package tests;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -6,12 +8,10 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
-public class LocatorTest {
+public class LocatorTest extends BaseTest{
 
     @Test
-    public void checkLocator() {
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+    public void checkLocator(){
         driver.get("https://www.saucedemo.com/");
 
         driver.findElement(By.id("root"));
