@@ -9,7 +9,7 @@ public class LoginTest extends BaseTest {
     public void checkLoginPositive() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
-        softAssert.assertEquals(productsPage.getTitle(),
+        Assert.assertEquals(productsPage.getTitle(),
                 "Products",
                 "Логин не выполнен");
     }
@@ -18,7 +18,7 @@ public class LoginTest extends BaseTest {
     public void checkLoginWithEmptyFields() {
         loginPage.open();
         loginPage.login("", "");
-        softAssert.assertEquals(
+        Assert.assertEquals(
                 loginPage.getErrorMessage(),
                 "Epic sadface: Username is required",
                 "Сообщение об ошибке не появилось");
@@ -28,7 +28,7 @@ public class LoginTest extends BaseTest {
     public void checkLoginWithEmptyPassword() {
         loginPage.open();
         loginPage.login("standard_user", "");
-        softAssert.assertEquals(
+        Assert.assertEquals(
                 loginPage.getErrorMessage(),
                 "Epic sadface: Password is required",
                 "Сообщение об ошибке не появилось");
