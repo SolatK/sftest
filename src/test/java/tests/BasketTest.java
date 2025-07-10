@@ -12,7 +12,10 @@ import java.util.HashMap;
 
 public class BasketTest extends BaseTest{
 
-    @Test
+    @Test(
+            description = "Проверка наличия товара в корзине после добавления туда товара",
+            testName = "Товар в корзине"
+    )
     public void basketTest() {
 
         driver.get("https://www.saucedemo.com/");

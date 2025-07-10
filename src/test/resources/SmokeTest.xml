@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Saucedemo SmokeTest" thread-count="5" parallel="tests">
+    <listeners>
+        <listener class-name="config.AnnotationTransformer"/>
+        <listener class-name="config.TestListener"></listener>
+    </listeners>
+    <test name="Chrome">
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.BasketTest"/>
+            <class name="tests.CartBageTest"/>
+            <parameter name="browser" value="chrome"></parameter>
+        </classes>
+    </test>
+    <test name="FireFox">
+        <classes>
+            <class name="tests.LoginTest"/>
+            <parameter name="browser" value="firefox"></parameter>
+        </classes>
+    </test>
+</suite>
