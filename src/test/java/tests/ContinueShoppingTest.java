@@ -8,7 +8,10 @@ import pages.ProductsPage;
 
 public class ContinueShoppingTest extends BaseTest{
 
-    @Test
+    @Test(
+            description = "Проверка на работоспособность кнопки продолжения покупок",
+            testName = "Работа кнопки продолжить"
+    )
     public void buttonTest() {
         loginStandardUser();
 

@@ -1,5 +1,6 @@
 package tests;
 
+import jdk.jfr.Enabled;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,7 +11,10 @@ import java.time.temporal.ChronoUnit;
 
 public class LocatorTest extends BaseTest{
 
-    @Test
+    @Test(
+            description = "Работа локаторов",
+            testName = "Работа локаторов"
+    )
     public void checkLocator(){
         driver.get("https://www.saucedemo.com/");
 

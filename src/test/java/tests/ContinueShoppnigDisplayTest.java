@@ -6,7 +6,10 @@ import pages.CartPage;
 
 public class ContinueShoppnigDisplayTest extends BaseTest{
 
-    @Test
+    @Test(
+            description = "Проверка на отображение кнопки продолжить покупки",
+            testName = "Отображение кнопки продолжить"
+    )
     public void buttonCheck() {
         loginStandardUser();
 
