@@ -1,9 +1,11 @@
 package tests;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
@@ -15,13 +17,15 @@ import pages.ProductsPage;
 import java.time.Duration;
 import java.util.HashMap;
 
+import static tests.AllureUtils.takeScreenshot;
+
 public class BaseTest {
     WebDriver driver;
     SoftAssert softAssert;
     LoginPage loginPage;
     ProductsPage productsPage;
 
-    @BeforeMethod (alwaysRun = true)
+    @BeforeMethod (alwaysRun = true, description = "Настройка драйвера")
     @Parameters({"browser"})
     public void setup(@Optional("chrome") String browser) {
         softAssert = new SoftAssert();
@@ -50,11 +54,15 @@ public class BaseTest {
         productsPage = new ProductsPage(driver);
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void tearDown() {
+    @AfterMethod(alwaysRun = true, description = "Закрытие браузера")
+    public void tearDown(ITestResult result) {
+        if (ITestResult.FAILURE == result.getStatus()) {
+            takeScreenshot(driver);
+        }
         driver.quit();
     }
 
+    @Step("Вход со стандартными логином и паролем")
     protected void loginStandardUser() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");

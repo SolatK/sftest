@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,6 +17,8 @@ public class BasketTest extends BaseTest{
             description = "Проверка наличия товара в корзине после добавления туда товара",
             testName = "Товар в корзине"
     )
+
+    @Description("Проверка наличия товара в корзине после добавления туда товара")
     public void basketTest() {
 
         driver.get("https://www.saucedemo.com/");
