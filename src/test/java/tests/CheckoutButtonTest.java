@@ -7,7 +7,10 @@ import pages.CheckoutOnePage;
 
 public class CheckoutButtonTest extends BaseTest{
 
-    @Test
+    @Test(
+            description = "Проверка на работоспособность кнопки чекаута",
+            testName = "Работа кнопки чекаут"
+    )
     public void buttonTest() {
         loginStandardUser();
 

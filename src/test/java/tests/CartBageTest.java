@@ -5,7 +5,12 @@ import org.testng.annotations.Test;
 
 public class CartBageTest extends BaseTest{
 
-    @Test(expectedExceptions = NoSuchElementException.class)
+
+    @Test(
+            description = "Проверка на отображения количества товаров в корзине возле значка корзины",
+            testName = "Количество товаров в корзине",
+            expectedExceptions = NoSuchElementException.class
+    )
     public void bageTest() {
         loginStandardUser();
 
